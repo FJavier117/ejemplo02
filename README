@@ -1,0 +1,4 @@
+# COMUNICACIÓN ENTRE JSP Y CLASES JAVA
+
+## Es posible incluir código Java en las JSPs para procesar los datos, pero esto no es una buena
+   práctica.
