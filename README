@@ -2,3 +2,42 @@
 
 ## Es posible incluir código Java en las JSPs para procesar los datos, pero esto no es una buena
    práctica.
+
+## Lo recomendable es utilizar algún patrón que organice la aplicación en partes independientes.
+
+## Para aplicaciones muy sencillas, JSP es util para capturar y mostrar
+   información, es decir, para implementar la vista.
+
+## Y el procesamiento se hace con clases normales de Java.
+
+## Sin embargo, para aplicaciones reales, que tienen mayor complejidad, es mejor
+   utilizar un patrón de diseño, como MVC
+
+# Los hilos en una JSP
+## 1. Cuando se solicita una página JSP por primera vez, el motor JSP genera un servlet correspondiente a la página (se le llama instancia de la JSP).
+## 2. La instancia de la JSP se guarda en la memoria del servidor.
+## 3. Si la JSP contiene código Java, también se inicia lo que se llama un hilo.
+## 4. Posteriormente, cada que hay otra petición de la página, se utiliza la instancia de la JSP y además,
+## se crea otro hilo por cada nueva petición de la página.
+## 5. Las variables globales se guardan en la instancia de la JSP, y se declaran dentro del tag <%! %>.
+## 6. Las variables locales se crean para cada thread, y se declaran dentro de un scriptlet.
+
+# Ruta de acceso a los archivos JSP
+
+## Cuando se trabaja con JSPs y servlets, se usan las rutas relativas para hacer referencia a los
+##  archivos, por ejemplo: “/WEB-INF/web.xml”.
+## Para leer o guardar datos en un archivo, es necesario tener
+## la ruta completa, es decir la ruta absoluta del archivo.
+## El servlet Context (contexto del servlet) maneja la información a
+## nivel de toda la aplicación Web.
+## La clase ServletContext contiene métodos que sirven para que un servlet
+## se comunique con su contenedor. Todos los servlets de una aplicación
+## tienen el mismo ServletContext.
+
+## El ServletContext contiene un método que sirve para obtener la ruta real de un archivo
+   que está dentro del proyecto de la aplicación. Entonces, para obtener la ruta real de “/WEBINF/web.xml”:
+
+## ServletContext sc = this.getServletContext();
+##   String path = sc.getRealPath(“/WEB-INF/web.xml”);
+##   path = path.replace(‘\\’,’/’);
+

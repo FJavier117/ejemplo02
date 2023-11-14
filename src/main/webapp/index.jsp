@@ -2,12 +2,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>Conteo de peticiones</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+<%--Importamos una clase java uitlizando una directiva--%>
+<%@page import="java.util.Date" %>
+<%--Esto es una declaración (variables y metodos) elementos globales--%>
+<%! int  cuentaGlobal = 0; %>
+<%--Variable que se incremental por cada accesos scriptlet--%>
+<% cuentaGlobal++; %>
+<h1>Contador del número de accesos al sitio web</h1>
+<h3>Fecha y Hora: </h3>
+<p>
+    <%--Esto es una expresión mostramos datos--%>
+    <%= new Date()  %>
+</p>
+<h3>Número de accesos: </h3>
+<p>
+    <%--Esto es una expresión mostramos datos--%>
+    <%= cuentaGlobal %>
+</p>
 </body>
 </html>
