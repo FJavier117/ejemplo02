@@ -6,11 +6,12 @@
 </head>
 <body>
 <%--Importamos una clase java uitlizando una directiva--%>
-<%@page import="java.util.Date" %>
+<%@ page import="java.util.Date" %>
 <%--Esto es una declaración (variables y metodos) elementos globales--%>
 <%! int  cuentaGlobal = 0; %>
 <%--Variable que se incremental por cada accesos scriptlet--%>
-<% cuentaGlobal++; %>
+<% cuentaGlobal++;
+%>
 <h1>Contador del número de accesos al sitio web</h1>
 <h3>Fecha y Hora: </h3>
 <p>
